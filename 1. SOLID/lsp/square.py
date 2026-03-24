@@ -1,13 +1,20 @@
-from rectangle import Rectangle
+from shape import Shape
 
-class Square(Rectangle):
+class Square(Shape):
     def __init__(self, size):
-        Rectangle.__init__(self, size, size)
+        self._size = size
 
-    @Rectangle.width.setter
-    def width(self, value):
-        self._width = self._height = value
+    @property
+    def size(self):
+        return self._size
 
-    @Rectangle.height.setter
-    def width(self, value):
-        self._width = self._height = value
+    @size.setter
+    def size(self, value):
+        self.size = value
+
+    @property
+    def area(self):
+        return self._size * self._size
+
+    def __str__(self):
+        return f"Width: {self.size}, Height: {self.size}"

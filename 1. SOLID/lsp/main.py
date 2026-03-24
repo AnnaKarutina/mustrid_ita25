@@ -1,16 +1,12 @@
 from rectangle import Rectangle
 from square import Square
 
-def use_shape(shape):
-    width = shape.width
-    shape.height = 10
-    expected_area = width * 10
-    actual_area = shape.area
-    print(f"Expected area: {expected_area}")
-    print(f"Actual area: {actual_area}")
+if __name__ == "__main__":
+    r = Rectangle(2, 3)
+    s = Square(5)
 
-r = Rectangle(2, 3)
-use_shape(r)
+    print(r)
+    print(s)
 
-s = Square(5)
-use_shape(s)
+    print(f"Rectangle area: {r.area}")
+    print(f"Square area: {s.area}")
