@@ -3,6 +3,7 @@ from color import Color
 from size import Size
 from color_spec import  ColorSpecification
 from size_spec import SizeSpecification
+from and_spec import AndSpecification
 from better_filter import BetterFilter
 
 if __name__ == "__main__":
@@ -14,19 +15,19 @@ if __name__ == "__main__":
 
     bf = BetterFilter()
 
-    print("Green products:")
-    green = ColorSpecification(Color.GREEN)
-    for p in bf.filter(products, green):
+    print("Blue products:")
+    blue = ColorSpecification(Color.BLUE)
+    for p in bf.filter(products, blue):
         print(p.name)
     print()
 
     print("Large products:")
-    # small = SizeSpecification(Size.SMALL)
     large = SizeSpecification(Size.LARGE)
     for p in bf.filter(products, large):
         print(p.name)
     print()
 
-    # print("Large blue products:")
-    # for p in pf.filter_by_size_and_color(products, Size.LARGE, Color.BLUE):
-    #     print(p.name)
+    print("Large blue products:")
+    large_blue = AndSpecification(large, blue)
+    for p in bf.filter(products, large_blue):
+        print(p.name)
